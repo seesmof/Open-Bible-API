@@ -24,22 +24,22 @@ verses: list[dict[str, str]] = [
 
 
 @app.get("/")
-def show_hint():
+def show_hint() -> str:
     return "Enter a reference to get a verse"
 
 
 @app.get("/random")
-def get_random_verse():
+def get_random_verse() -> dict[str, str]:
     return verses[random.randint(0, len(verses) - 1)]
 
 
 @app.get("/all")
-def get_all_verses():
+def get_all_verses() -> list[dict[str, str]]:
     return verses
 
 
 @app.get("/{reference}")
-def get_verse(reference: str):
+def get_verse(reference: str) -> dict[str, str]:
     reference = clean_reference(reference)
     # TODO parse reference to get correct Book, Chapter and Verse values
     print(reference)
