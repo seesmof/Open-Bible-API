@@ -27,3 +27,8 @@ def get_verse(reference: str):
             return verse
 
     return {"error": "Verse not found", "reference": reference}
+
+
+@app.get("/")
+def show_hint():
+    return "Enter a reference to get a verse"
