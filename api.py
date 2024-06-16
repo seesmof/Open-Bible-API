@@ -10,6 +10,7 @@ add /ua and /en routes and for both of those add a route to list all available B
 add a database from which we will query our Bible verses
     in database create tables for each Bible version
 create Bible Book Names correspondance table
+try out pydantic and sqlalchemy with sqlite3
 """
 
 verses: list[dict[str, str]] = [
