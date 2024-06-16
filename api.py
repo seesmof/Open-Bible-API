@@ -24,3 +24,5 @@ def get_verse(reference: str):
     for verse in verses:
         if verse.get("reference") == reference:
             return verse
+
+    return {"error": "Verse not found"}
