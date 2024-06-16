@@ -11,3 +11,8 @@ def get_verse():
     }
 
     return jsonify(verse)
+
+
+@app.route("/", methods=["GET", "POST", "PUT", "DELETE"])
+def index():
+    return "go to /verse to get the verse"
