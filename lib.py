@@ -28,13 +28,13 @@ def decypher_reference(reference: str) -> str:
     account for all those kinds of Bible references and decypher them into a proper Bible reference in format `Book Chapter:Verse`
     """
 
-    pattern = r"(?P<Book>[A-Z]+)[.: ]?(?P<Chapter>\d+)[.:](?P<Verse>\d+)"
+    pattern = r"(?P<Book>[A-Za-z]+)[.: ]?(?P<Chapter>\d+)[.:](?P<Verse>\d+)"
     match = re.match(pattern, reference)
 
     if match:
         Book = match.group("Book")
         Chapter = match.group("Chapter")
         Verse = match.group("Verse")
-        return f"{Book} {Chapter}:{Verse}"
+        return f"{Book.title()} {Chapter}:{Verse}"
 
     return reference
