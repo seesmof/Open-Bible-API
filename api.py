@@ -1,3 +1,4 @@
+import random
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -21,12 +22,18 @@ def clean_reference(reference: str) -> str:
 @app.get("/{reference}")
 def get_verse(reference: str):
     reference = clean_reference(reference)
+    # TODO parse reference to get correct Book, Chapter and Verse values
     print(reference)
     for verse in verses:
         if verse.get("reference") == reference:
             return verse
 
     return {"error": "Verse not found", "reference": reference}
+
+
+@app.get("/random")
+def get_random_verse():
+    return verses[random.randint(0, len(verses) - 1)]
 
 
 @app.get("/")
