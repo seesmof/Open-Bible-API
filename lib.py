@@ -1,3 +1,6 @@
+import re
+
+
 def clean_reference(reference: str) -> str:
     reference = (
         reference.strip().replace("%20", " ").replace(".", ":").replace("%3A", ":")
@@ -11,6 +14,7 @@ def decypher_reference(reference: str) -> str:
     """
     JN1.1
     JHN1.1
+    JN.1.1
     John1.1
     John1:1
     JN 1.1
@@ -23,3 +27,14 @@ def decypher_reference(reference: str) -> str:
     TODO
     account for all those kinds of Bible references and decypher them into a proper Bible reference in format `Book Chapter:Verse`
     """
+
+    pattern = r"(?P<Book>[A-Z]+)[.: ]?(?P<Chapter>\d+)[.:](?P<Verse>\d+)"
+    match = re.match(pattern, reference)
+
+    if match:
+        Book = match.group("Book")
+        Chapter = match.group("Chapter")
+        Verse = match.group("Verse")
+        return f"{Book} {Chapter}:{Verse}"
+
+    return reference

@@ -1,7 +1,7 @@
 import random
 from fastapi import FastAPI
 
-from lib import clean_reference
+from lib import clean_reference, decypher_reference
 
 app = FastAPI()
 """
@@ -40,9 +40,7 @@ def get_all_verses() -> list[dict[str, str]]:
 
 @app.get("/{reference}")
 def get_verse(reference: str) -> dict[str, str]:
-    reference = clean_reference(reference)
-    # TODO parse reference to get correct Book, Chapter and Verse values
-    print(reference)
+    reference = decypher_reference(reference)
     for verse in verses:
         if verse.get("reference") == reference:
             return verse
