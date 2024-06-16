@@ -13,17 +13,19 @@ def get_verse(reference):
     verse: dict = {
         "verse": "For GOD so loved the world that He gave His Only Son that whoever believes in Him should not perish but have eternal life.",
         "reference": "John 3:16",
+        "lang": "en",
+        "version": "BSB",
     }
     verse["reference"] = reference
 
-    return jsonify(verse)
+    return jsonify(verse), 200
 
 
 """
 Bible database schema for getting random Bible verses 
 
-text: str 
+verse: str 
 reference: str 
 lang: str = "en" | "uk"
-version: str = "NASB" | "UBIO"
+version: str = "BSB" | "UBIO"
 """
