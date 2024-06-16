@@ -32,7 +32,8 @@ def show_hint() -> str:
 
 @app.get("/random")
 def get_random_verse() -> dict[str, str]:
-    return verses[random.randint(0, len(verses) - 1)]
+    random_verse: dict[str, str] = random.choice(verses)
+    return random_verse
 
 
 @app.get("/all")
