@@ -14,8 +14,13 @@ verses: list[dict[str, str]] = [
 ]
 
 
+def clean_reference(reference: str) -> str:
+    return reference.replace(" ", "%20")
+
+
 @app.get("/{reference}")
 def get_verse(reference: str):
+    reference = clean_reference(reference)
     for verse in verses:
-        if verse["reference"] == reference:
+        if verse.get("reference") == reference:
             return verse
