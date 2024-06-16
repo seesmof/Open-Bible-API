@@ -1,6 +1,8 @@
 import random
 from fastapi import FastAPI
 
+from lib import clean_reference
+
 app = FastAPI()
 """
 TODO
@@ -21,8 +23,9 @@ verses: list[dict[str, str]] = [
 ]
 
 
-def clean_reference(reference: str) -> str:
-    return reference.replace("%20", " ").replace(".", ":")
+@app.get("/")
+def show_hint():
+    return "Enter a reference to get a verse"
 
 
 @app.get("/random")
@@ -45,8 +48,3 @@ def get_verse(reference: str):
             return verse
 
     return {"error": "Verse not found", "reference": reference}
-
-
-@app.get("/")
-def show_hint():
-    return "Enter a reference to get a verse"
