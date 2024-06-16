@@ -2,6 +2,7 @@ import random
 from fastapi import FastAPI
 
 app = FastAPI()
+# todo add /ua and /en routes and for both of those add a route to list all available Bible translations or versions
 
 verses: list[dict[str, str]] = [
     {
@@ -19,6 +20,11 @@ def clean_reference(reference: str) -> str:
     return reference.replace("%20", " ").replace(".", ":")
 
 
+@app.get("/random")
+def get_random_verse():
+    return verses[random.randint(0, len(verses) - 1)]
+
+
 @app.get("/{reference}")
 def get_verse(reference: str):
     reference = clean_reference(reference)
@@ -29,11 +35,6 @@ def get_verse(reference: str):
             return verse
 
     return {"error": "Verse not found", "reference": reference}
-
-
-@app.get("/random")
-def get_random_verse():
-    return verses[random.randint(0, len(verses) - 1)]
 
 
 @app.get("/")
