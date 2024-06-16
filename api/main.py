@@ -11,7 +11,3 @@ def get_verse():
     }
 
     return jsonify(verse)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
