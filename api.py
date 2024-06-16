@@ -6,9 +6,9 @@ from lib import clean_reference
 app = FastAPI()
 """
 TODO
-add a route to show all the available Bible verses 
-add /ua and /en routes and for both of those add a route to list all available Bible translations or versions
+add /ua and /en routes and for both of those add a route to list all available Bible translations
 add a database from which we will query our Bible verses
+    in database create tables for each Bible version
 """
 
 verses: list[dict[str, str]] = [
