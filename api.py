@@ -1,7 +1,7 @@
 import random
 from fastapi import FastAPI
 
-from lib import clean_reference, decypher_reference
+from lib import decypher_reference
 
 app = FastAPI()
 """
