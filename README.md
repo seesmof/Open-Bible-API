@@ -11,5 +11,5 @@ version: str = "BSB" | "UBIO"
 ```
 
 ```shell
-uvicorn api:app --reload
+python -m uvicorn api:app --reload
 ```
