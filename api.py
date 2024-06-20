@@ -58,6 +58,10 @@ verses: list[dict[str, str]] = [
         "text": "Jesus responded and said to him, “Truly, truly, I say to you, unless someone is born again he cannot see the kingdom of God.”",
         "reference": "John 3:3",
     },
+    {
+        "text": "Therefore, having these promises, beloved, let’s cleanse ourselves from all defilement of flesh and spirit, perfecting holiness in the fear of God.",
+        "reference": "2 Corinthians 7:1",
+    },
 ]
 
 
