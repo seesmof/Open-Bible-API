@@ -38,3 +38,9 @@ def decypher_reference(reference: str) -> str:
         return f"{Book.title()} {Chapter}:{Verse}"
 
     return reference
+
+
+def decompose_reference(reference: str) -> tuple[str, str, str]:
+    Book, Chapter_Verse = reference.split(" ")
+    Chapter, Verse = Chapter_Verse.split(":")
+    return Book, Chapter, Verse
