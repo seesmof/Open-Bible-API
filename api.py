@@ -1,7 +1,7 @@
 import random
 from fastapi import FastAPI
 
-from lib import decypher_reference
+from lib import decrypt_reference
 
 app = FastAPI()
 """
@@ -83,7 +83,7 @@ def get_all_verses() -> list[dict[str, str]]:
 
 @app.get("/{reference}")
 def get_verse(reference: str) -> dict[str, str]:
-    reference = decypher_reference(reference)
+    reference = decrypt_reference(reference)
     for verse in verses:
         if verse.get("reference") == reference:
             return verse

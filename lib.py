@@ -1,15 +1,25 @@
 import re
 
 
-def clean_reference(reference: str) -> str:
+def decode_reference_uri(reference: str) -> str:
+    """
+    Decodes a URI percent-encoded reference by replacing specific characters with stringly characters.
+
+    IN:
+    reference (str): The URI reference to be decoded.
+
+    OUT:
+    str: The decoded URI reference.
+    """
+
     reference = (
         reference.strip().replace("%20", " ").replace(".", ":").replace("%3A", ":")
     )
     return reference
 
 
-def decypher_reference(reference: str) -> str:
-    reference = clean_reference(reference)
+def decrypt_reference(reference: str) -> str:
+    reference = decode_reference_uri(reference)
 
     """
     JN1.1
@@ -41,6 +51,16 @@ def decypher_reference(reference: str) -> str:
 
 
 def decompose_reference(reference: str) -> tuple[str, str, str]:
+    """
+    Decomposes a reference string into its constituent parts: Book, Chapter, and Verse.
+
+    IN:
+    reference (str): The reference string to decompose.
+
+    OUT:
+    tuple[str, str, str]: A tuple containing the Book, Chapter, and Verse parts of the reference string.
+    """
+
     Book, Chapter_Verse = reference.split(" ")
     Chapter, Verse = Chapter_Verse.split(":")
     return Book, Chapter, Verse
