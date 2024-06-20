@@ -3,7 +3,7 @@ import re
 
 def decode_reference_uri(reference: str) -> str:
     """
-    Decodes a URI percent-encoded reference by replacing specific characters with stringly characters
+    Decodes a URI percent-encoded reference by replacing special characters with stringly ones
 
     IN:
     reference (str): The URI reference to be decoded
