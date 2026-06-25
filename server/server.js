@@ -1,8 +1,12 @@
 const express = require("express");
-const Bible = require("./bible.json")
+const Bible = require("../bible.json")
 
 const app = express();
 const port = 3000;
+
+app.get("/", (req, res) => {
+    return res.status(200).send("Please enter a Bible place in a format /Book/Chater/Verse or just /Book/Chapter/")
+})
 
 app.get("/:book/:chapter", (req, res) => {
     const book = req.params.book;
