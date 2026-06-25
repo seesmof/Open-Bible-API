@@ -1,5 +1,5 @@
 const express = require("express");
-const Bible = require("../bible.json")
+const Bible = require("./bible.json")
 
 const app = express();
 const port = 3000;
