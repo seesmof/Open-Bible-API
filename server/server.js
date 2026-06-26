@@ -22,7 +22,13 @@ app.get("/:book/:chapter", (req, res) => {
     const result = Bible[book][chapter];
     if (!result || result === null) return res.status(404).send("Couldn't find the chapter specified. Please check the URL to make sure it's in the correct format.")
 
-    return res.status(200).json(result);
+    let array = [];
+    for (let verseNumber in result) {
+        let verse = { "number": verseNumber, "verse": result[verseNumber] }
+        array.push(verse);
+    }
+
+    return res.status(200).json(array);
 })
 
 app.get("/:book/:chapter/:verse", (req, res) => {
@@ -38,7 +44,7 @@ app.get("/:book/:chapter/:verse", (req, res) => {
     const result = Bible[book][chapter][verse];
     if (!result || result === null) return res.status(404).send("Couldn't find the verse provided. Please check the URL to make sure it is in the correct format.")
 
-    return res.status(200).json(result);
+    return res.status(200).json({ "verse": result });
 })
 
 app.listen(port)
