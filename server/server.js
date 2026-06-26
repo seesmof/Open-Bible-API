@@ -1,7 +1,9 @@
 const express = require("express");
-const Bible = require("./bible.json")
+const Bible = require("./bible.json");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 const port = 3000;
 
 app.get("/", (req, res) => {
