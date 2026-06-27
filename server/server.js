@@ -24,7 +24,7 @@ app.get("/:book/:chapter", (req, res) => {
 
     let array = [];
     for (let verseNumber in result) {
-        let verse = { "number": verseNumber, "verse": result[verseNumber] }
+        let verse = { "number": Number.parseInt(verseNumber), "verse": result[verseNumber] }
         array.push(verse);
     }
 
