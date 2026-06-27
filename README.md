@@ -1,15 +1,17 @@
-Hallelujah thank YOU Jesus Christ our Holy Lord GOD Almighty
+# Open Bible API
 
-```python
-text: str
-book: str
-chapter: int
-verse: int
-reference: str
-lang: str = "en" | "uk"
-version: str = "BSB" | "UBIO"
-```
+Hallelujah thank YOU Jesus Christ our Holy Lord GOD Almighty.
 
-```shell
-python -m uvicorn api:app --reload
-```
+## Endpoints
+
+1. Verse
+
+- Get a specific verse from the Bible.
+- Endpoint is at `/Book/Chapter/Verse`
+- `Book` must be in 3-letter all-caps format: ROM, 1CO, JHN.
+- `Verse` and `Chapter` must be a number
+
+2. Chapter
+
+- Get a list of verses in the specified chapter.
+- Endpoint is at `/Book/Chapter`
