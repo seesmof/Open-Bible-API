@@ -2,6 +2,8 @@
 
 Hallelujah thank YOU Jesus Christ our Holy Lord GOD Almighty.
 
+Currently the API supports only the Ukrainian Bible Kulish from 1903, which is in the public domain.
+
 ## Endpoints
 
 1. Verse
